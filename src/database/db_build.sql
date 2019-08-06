@@ -30,19 +30,29 @@ CREATE TABLE reservations (
 );
 
 INSERT INTO books(name, date, genre) VALUES
-('Alice In Wonderland', '1865', 'Child Fiction'),
-('Made To Stick', '2007', 'Business'),
-('Treasure Island', '1883', 'Child Fiction'),
-('Pride and Prejudice', '1813', 'Romance')
+  ('Alice In Wonderland', '1865', 'Child Fiction'),
+  ('Treasure Island', '1883', 'Child Fiction'),
+  ('Pride and Prejudice', '1813', 'Romance'),
+  ('Made To Stick', '2007', 'Business')
 RETURNING ID;
 
 INSERT INTO authors(first_name, last_name) VALUES
-('Lewis', 'Carol'),
-('Chip', 'Heath'),
-('Dan', 'Heath'),
-('Robert', 'Luis Stevenson'),
-('Jane', 'Austen')
+  ('Lewis', 'Carol'),
+  ('Robert', 'Luis Stevenson'),
+  ('Jane', 'Austen'),
+  ('Chip', 'Heath'),
+  ('Dan', 'Heath')
 RETURNING ID;
+
+INSERT INTO book_authors(book_id, author_id) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 4),
+  (4, 5);
+
+INSERT INTO reservations(book_id, start_date, end_date) VALUES
+  (1, '01-08-2019', '30-08-2019');
 
 
 COMMIT;
