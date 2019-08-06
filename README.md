@@ -15,6 +15,11 @@ If I want to borrow a book
     - I can reserve a book for certain dates (add my name as the renter)
     - I can unreserve a book
 
+## Basic App Schema
+
+[]('./assets/db_schema.png')
+
+
 
 ---
 
