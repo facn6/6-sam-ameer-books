@@ -20,22 +20,15 @@ CREATE TABLE "authors" (
 
 CREATE TABLE "book_authors" (
   "id" SERIAL PRIMARY KEY,
-  "book_id" integer,
-  "author_id" integer
+  "book_id"   integer REFERENCES books(id) ON UPDATE CASCADE,
+  "author_id" integer REFERENCES authors(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE "reservations" (
   "id" SERIAL PRIMARY KEY,
-  "book_id" TEXT NOT NULL,
+  "book_id"   integer REFERENCES books(id) ON UPDATE CASCADE,
   "start_date" VARCHAR(10) NOT NULL,
   "end_date" VARCHAR(10) NOT NULL
-);
-
-ALTER TABLE "books" ADD FOREIGN KEY ("id") REFERENCES "book_authors" ("book_id");
-
-ALTER TABLE "authors" ADD FOREIGN KEY ("id") REFERENCES "book_authors" ("author_id");
-
-ALTER TABLE "books" ADD FOREIGN KEY ("id") REFERENCES "reservations" ("book_id");
 );
 
 COMMIT;
