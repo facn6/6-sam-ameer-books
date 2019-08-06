@@ -10,3 +10,7 @@ dbConnection.query(sql, (err, res) => {
   }
   console.log("Our book tables were created with result: ", res);
 });
+
+const runDbBuild = cb => dbConnection.query(sql, cb)
+
+module.exports = runDbBuild
