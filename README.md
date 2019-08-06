@@ -17,8 +17,7 @@ If I want to borrow a book
 
 ## Basic App Schema
 
-[]('./assets/db_schema.png')
-
+![](./assets/db_schema.png)
 
 
 ---

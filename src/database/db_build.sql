@@ -8,7 +8,8 @@ DROP TABLE IF EXISTS "reservations" CASCADE;
 CREATE TABLE "books" (
   "id" SERIAL PRIMARY KEY,
   "name" VARCHAR(250) NOT NULL,
-  "date" VARCHAR(10)
+  "date" VARCHAR(10),
+  "genre" VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE "authors" (

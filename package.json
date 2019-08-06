@@ -2,21 +2,31 @@
   "name": "6-sam-ameer-books",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "pg": "^7.12.0",
+    "supertest": "^4.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "test": "NODE_ENV=test node tests/tests.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/facn6/6-sam-ameer-books.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/facn6/6-sam-ameer-books/issues"
   },
-  "homepage": "https://github.com/facn6/6-sam-ameer-books#readme",
-  "dependencies": {
-    "nodemon": "^1.19.1"
-  }
+  "homepage": "https://github.com/facn6/6-sam-ameer-books#readme"
 }
