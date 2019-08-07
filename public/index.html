@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Sameer Book Swap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="home-button">Browse</a>
+        <a href="#" class="home-button">Donate</a>
+      </div>
+    </nav>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <div class="table-container">
+      <table id="users-table">
+        <tr>
+          <th>Name</th>
+          <th>Author(s)</th>
+          <th>Category</th>
+          <th>Year</th>
+          <th>Reservations</th>
+        </tr>
+      </table>
+    </div>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <form class="form" action="/create-book" method="post">
+        <input type="text" name="name" value="" placeholder="name">
+        <input type="text" name="category" value="" placeholder="category">
+        <input type="text" name="category" value="" placeholder="category" list="categories">
+        <datalist id="categories">
+            <option value="child-fiction">Child Fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="romance">Romance</option>
+            <option value="science">Science</option>
+            <option value="self-help">Self Help</option>
+            <option value="Business">Business</option>
+        </datalist>
+        <input type="number" name="year" value="" placeholder="year" pattern='[0-9]{4}'>
+        <button type="submit" name="button">Add a Book</button>
+    </form>
+
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
+
+</html>
