@@ -38,7 +38,7 @@ RETURNING ID;
 
 INSERT INTO authors(first_name, last_name) VALUES
   ('Lewis', 'Carol'),
-  ('Robert', 'Luis Stevenson'),
+  ('Robert', 'Louis Stevenson'),
   ('Jane', 'Austen'),
   ('Chip', 'Heath'),
   ('Dan', 'Heath')
