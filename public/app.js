@@ -1,33 +1,36 @@
 const runFetch = (url, cb) => {
     fetch(url)
-      .then(data => data.json()).then(({ files }) => {
-        cb(null, files);
+      .then(data => data.json() )
+        .then((books) => {
+            cb(null, books);
       }).catch((err) => {
         cb(err);
       });
   };
-  
-  const updateBookList = () => {
+
+const updateBookList = () => {
     runFetch('/books', (err, books) => {
       if (err) {
         // document.getElementById('books').innerHTML = 'We have an error in our book database';
       } else {
         var table = document.getElementById('books-table');
-        books.forEach((file) => {
+        books.forEach((book) => {
+            console.log(book);
             var row = document.createElement('tr');
-            var name = document.createElement('td');
-            name.innerHTML = book.name;
-            row.appendChild(name);
-            var author = document.createElement('td');
-            author.innerHTML = book.first_name + " " + book.last_name;
-            row.appendChild(author);
-            var year = document.createElement('td');
-            year.innerHTML = book.year;
-            row.appendChild(year);
-            var genre = document.createElement('td');
-            genre.innerHTML = book.genre;
-            row.appendChild(genre);
+            row.appendChild( createItem(book.name) );
+            row.appendChild( createItem(book.first_name + " " + book.last_name) );
+            row.appendChild( createItem(book.date) );
+            row.appendChild( createItem(book.genre) );
+            table.appendChild(row);
         });
       }
     });
-  };
+};
+
+const createItem = (data) => {
+    var item = document.createElement('td');
+    item.innerHTML = data;
+    return item;
+}
+
+updateBookList();
