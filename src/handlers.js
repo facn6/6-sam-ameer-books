@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const browseBooks = require('./queries/browseBooks.js');
 
 const homeHandler = (req, res) => {
   const { pathname } = url.parse(req.url);
@@ -24,6 +25,21 @@ const homeHandler = (req, res) => {
   });
 };
 
+const bookListHandler = (req, response) => {
+  browseBooks((err, res) => {
+    if (err) {
+      response.writeHead(500, 'Content-Type:text/html');
+      response.end('<h1>Sorry, there was a problem finding the books<h1>');
+      console.log(err);
+    } else {
+      let output = JSON.stringify(res);
+      console.log('output being sent to front end = ', output)
+      response.writeHead(200, { 'content-type': 'application/json' });
+      response.end(output);
+    }
+  });
+};
+
 const errorHandler = (req, res) => {
   res.writeHead(404, {
     'content-type': 'text/plain',
@@ -33,5 +49,6 @@ const errorHandler = (req, res) => {
 
 module.exports = {
   homeHandler,
+  bookListHandler,
   errorHandler,
 };

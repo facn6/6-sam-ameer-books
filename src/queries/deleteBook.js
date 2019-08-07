@@ -22,6 +22,4 @@ deleteBookAuthRef = (id,cb) => {
       return cb(err); 
   });
 };
-
-deletebook(23);
 module.exports = deletebook;
