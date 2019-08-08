@@ -6,10 +6,22 @@ const querystring = require('querystring');
 const addBook = require('./queries/addBook.js');
 
 const homeHandler = (req, res) => {
+  const filepath = path.join(__dirname, '..', 'public', 'index.html');
+  fs.readFile(filepath, (err, file) => {
+    if (err) {
+      res.writeHead(500, { 'content-type': 'text/plain' });
+      res.end('server error');
+    } else {
+      res.writeHead(200, { 'content-type': 'text/html' });
+      res.end(file);
+    }
+  });
+}
+
+const publicHandler = (req, res) => {
   const { pathname } = url.parse(req.url);
-  const extension = pathname.split('.').length > 1 ? pathname.split('.')[1] : 'html';
-  const endPath = pathname === '/' ? 'index.html' : pathname;
-  const filepath = path.join(__dirname, '..', 'public', endPath);
+  const extension =  pathname.split('.')[1]
+  const filepath = path.join(__dirname, '..', 'public', pathname);
   const extensionObj = {
     html: 'text/html',
     css: 'text/css',
@@ -69,6 +81,7 @@ const errorHandler = (req, res) => {
 module.exports = {
   homeHandler,
   bookListHandler,
+  publicHandler,
   addBookHandler,
   errorHandler,
 };
