@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS books, authors, book_authors, reservations CASCADE;
 CREATE TABLE books (
   ID      SERIAL          PRIMARY KEY,
   name    VARCHAR(250)    NOT NULL,
-  date    VARCHAR(4),
+  year    VARCHAR(4),
   genre   VARCHAR(50)     NOT NULL
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE reservations (
   end_date    VARCHAR(10)   NOT NULL
 );
 
-INSERT INTO books(name, date, genre) VALUES
+INSERT INTO books(name, year, genre) VALUES
   ('Alice In Wonderland', '1865', 'Child Fiction'),
   ('Treasure Island', '1883', 'Child Fiction'),
   ('Pride and Prejudice', '1813', 'Romance'),

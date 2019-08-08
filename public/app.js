@@ -19,7 +19,7 @@ const updateBookList = () => {
             var row = document.createElement('tr');
             row.appendChild( createItem(book.name) );
             row.appendChild( createItem(book.first_name + " " + book.last_name) );
-            row.appendChild( createItem(book.date) );
+            row.appendChild( createItem(book.year) );
             row.appendChild( createItem(book.genre) );
             table.appendChild(row);
         });

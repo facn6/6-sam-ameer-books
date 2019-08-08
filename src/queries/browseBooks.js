@@ -2,7 +2,7 @@ const databaseConnection = require('../database/db_connection.js');
 
 const browseBooks = cb => {
     databaseConnection.query(
-        `SELECT books.name, books.date, books.genre, authors.first_name, authors.last_name
+        `SELECT books.name, books.year, books.genre, authors.first_name, authors.last_name
         FROM books
         JOIN book_authors
             ON books.id = book_authors.book_id
@@ -12,7 +12,11 @@ const browseBooks = cb => {
         if (err) {
             cb(err);
         } else {
-            cb(null, res.rows);
+            const library = res.rows.map((book) => {
+                book.year = Number(book.year);
+                return book;
+            })
+            cb(null, library);
         }
     });
 };
