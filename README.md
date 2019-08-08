@@ -51,3 +51,15 @@ If I want to borrow a book
     - search by author
     - book length
 - I can create a page that lists my favourite books.
+
+---
+
+## Lessons
+
+Making relationships between databases is cool but makes it a bit of a nightmare for adding, deleting, manipulating etc... If the project can be simple keep it simple.
+
+Hosting database on Heroku was a fun challenge. Updating the database as we made changes also caused problems initially.
+
+Testing is useful. Our delete function was implemented incorrectly and testing proved it wasn't doing it's job and now it works properly.
+
+Form submit. You can just post the data to an action in the form but currently we tehn redirect the page back to itself. We could have something nicer that just updates the DOM without reloading it.
