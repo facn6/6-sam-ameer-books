@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const browseBooks = require('./queries/browseBooks.js');
+const querystring = require('querystring');
+const addBook = require('./queries/addBook.js');
 
 const homeHandler = (req, res) => {
   const { pathname } = url.parse(req.url);
@@ -33,12 +35,29 @@ const bookListHandler = (req, response) => {
       console.log(err);
     } else {
       let output = JSON.stringify(res);
-      console.log('output being sent to front end = ', output)
       response.writeHead(200, { 'content-type': 'application/json' });
       response.end(output);
     }
   });
 };
+
+const addBookHandler = (request, response) => {
+  let reqBody = ''
+  request.on('data', (data) => {
+    reqBody += data;
+  })
+  request.on('end', () => {
+    const book = querystring.parse(reqBody);
+    addBook(book, (err, res) => {
+      if (err) {
+        console.log(err)
+      } else {
+        response.writeHead(301, { 'Location': '/' });
+        response.end();
+      }
+    })
+  })
+}
 
 const errorHandler = (req, res) => {
   res.writeHead(404, {
@@ -50,5 +69,6 @@ const errorHandler = (req, res) => {
 module.exports = {
   homeHandler,
   bookListHandler,
+  addBookHandler,
   errorHandler,
 };

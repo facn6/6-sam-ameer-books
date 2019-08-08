@@ -21,10 +21,11 @@ const addBook = (book, cb) => {
 
 
 const createBook = (book, cb) => {
-    const { name, date, genre } = book
+    const { name, year, genre } = book;
+    console.log('name = ', name, ', year = ', year, ', genre = ', genre)
     dbConnection.query(
         `INSERT INTO books(name, date, genre) VALUES
-        ($1, $2, $3)`, [name, date, genre]
+        ($1, $2, $3)`, [name, year, genre]
         , (err, res) => errFirstCB(err, res, cb)
     );
 }
@@ -49,17 +50,3 @@ const createBookAuthRef = (book, cb) => {
 }
 
 module.exports = addBook;
-
-// const testBook = {
-//     name: 'Cant Hurt Me',
-//     date: 2017,
-//     genre:'Self Help',
-//     first_name: 'David',
-//     last_name: 'Goggins'
-// };
-
-// addBook(testBook, (err, res) => {
-//     if(err) console.log(err);
-//     console.log(res);
-// })
-
