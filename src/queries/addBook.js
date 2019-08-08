@@ -23,7 +23,7 @@ const addBook = (book, cb) => {
 const createBook = (book, cb) => {
     const { name, year, genre } = book;
     dbConnection.query(
-        `INSERT INTO books(name, date, genre) VALUES
+        `INSERT INTO books(name, year, genre) VALUES
         ($1, $2, $3)`, [name, year, genre]
         , (err, res) => errFirstCB(err, res, cb)
     );

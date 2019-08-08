@@ -8,7 +8,7 @@ dbConnection.query(sql, (err, res) => {
   if (err) {
     throw err;
   }
-  console.log("Our book tables were created with result: ", res);
+  console.log("Our book tables were created with successfully");
 });
 
 const runDbBuild = cb => dbConnection.query(sql, cb)
