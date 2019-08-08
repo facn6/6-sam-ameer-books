@@ -22,7 +22,6 @@ const addBook = (book, cb) => {
 
 const createBook = (book, cb) => {
     const { name, year, genre } = book;
-    console.log('name = ', name, ', year = ', year, ', genre = ', genre)
     dbConnection.query(
         `INSERT INTO books(name, date, genre) VALUES
         ($1, $2, $3)`, [name, year, genre]
