@@ -11,7 +11,7 @@ const runFetch = (url, cb) => {
 const updateBookList = () => {
     runFetch('/books', (err, books) => {
       if (err) {
-        // document.getElementById('books').innerHTML = 'We have an error in our book database';
+         document.getElementById('error').innerHTML = 'We have an error in our book database';
       } else {
         var table = document.getElementById('books-table');
         books.forEach((book) => {
