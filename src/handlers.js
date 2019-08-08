@@ -30,7 +30,7 @@ const homeHandler = (req, res) => {
 const bookListHandler = (req, response) => {
   browseBooks((err, res) => {
     if (err) {
-      response.writeHead(500, 'Content-Type:text/html');
+      response.writeHead(500, {'Content-Type': 'text/html'});
       response.end('<h1>Sorry, there was a problem finding the books<h1>');
       console.log(err);
     } else {
