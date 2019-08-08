@@ -10,3 +10,17 @@ tape('what you are going to test', (t)=> {
     // your test goes here
     })
   })
+
+
+// const testBook = {
+//     name: 'Cant Hurt Me',
+//     date: 2017,
+//     genre:'Self Help',
+//     first_name: 'David',
+//     last_name: 'Goggins'
+// };
+
+// addBook(testBook, (err, res) => {
+//     if(err) console.log(err);
+//     console.log(res);
+// })

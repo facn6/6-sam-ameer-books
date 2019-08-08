@@ -35,10 +35,11 @@
     <hr/>
     <br/>
 
-    <form class="form" action="/create-book" method="post">
-        <input type="text" name="name" value="" placeholder="name">
-        <input type="text" name="category" value="" placeholder="category">
-        <input type="text" name="category" value="" placeholder="category" list="categories">
+   <form class="form" action="/create-book" method="post">
+        <input type="text" name="name" value="" placeholder="Book Name">
+        <input type="text" name="first_name" value="" placeholder="Author First Name">
+        <input type="text" name="last_name" value="" placeholder="Author Last Name">
+        <input type="text" name="genre" value="" placeholder="genre" list="categories">
         <datalist id="categories">
             <option value="child-fiction">Child Fiction</option>
             <option value="fantasy">Fantasy</option>
