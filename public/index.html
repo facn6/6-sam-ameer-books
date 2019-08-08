@@ -9,32 +9,10 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="home-button">Browse</a>
-        <a href="#" class="home-button">Donate</a>
-      </div>
-    </nav>
-
-    <br/>
-    <hr/>
-    <br/>
-
-    <div id="table-container">
-      <table id="books-table">
-        <tr>
-          <th>Name</th>
-          <th>Author</th>
-          <th>Year</th>
-          <th>Genre</th>
-        </tr>
-      </table>
-    </div>
-
+      <h1>BOOK RESERVATION </h1>
     <br/>
     <hr/>
     <br/> 
-    <p id="error"></p>
    <form class="form" action="/create-book" method="post">
         <input type="text" name="name" value="" placeholder="Book Name">
         <input type="text" name="first_name" value="" placeholder="Author First Name">
@@ -51,7 +29,27 @@
         <input type="number" name="year" value="" placeholder="year" pattern='[0-9]{4}'>
         <button type="submit" name="button">Add a Book</button>
     </form>
+      <br/>
+      <p id="error"></p>
+      <br/>
 
+    <div id="table-container">
+      <table id="books-table">
+        <tr>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Year</th>
+          <th>Genre</th>
+        </tr>
+      </table>
+    </div>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="home-button">Browse</a>
+        <a href="#" class="home-button">Donate</a>
+      </div>
+    </nav>
     <script type="text/javascript" src="./app.js"></script>
   </body>
 
